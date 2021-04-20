@@ -247,7 +247,8 @@ genreClustered=[[],[],[],[],[],[],[],[],[],[]]
 for i in range(88):
   for j in range(0,28,2):
     genreClustered[genreCat[i]].append([i,j])
-genreClustered
+
+#genreClustered
 
 print('evaluating and saving plots...')
 path= folder_path+'genre_vs_dynamic_video_categorization_results/'
