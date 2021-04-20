@@ -374,5 +374,5 @@ if args.eval:
     fig.tight_layout()
     plt.grid()
     plt.savefig(path+'/VPclusterEval_nclusters_'+str(nclusters)+'.png')
-    plt.show()
+    plt.close()
     
