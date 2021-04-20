@@ -92,5 +92,11 @@ Yu Guan, Chengyuan Zheng, Xinggong Zhang, Zongming Guo, and Junchen Jiang.2019. 
 Afshin Taghavi Nasrabadi, Aliehsan Samiei, Anahita Mahzari, Ryan P. McMahan, Ravi Prakash, Mylène C. Q. Farias, and Marcelo M. Carvalho. 2019. A taxonomy
 and dataset for 360° videos. In Proceedings of the 10th ACM Multimedia Systems Conference. ACM, Amherst Massachusetts, 273–278. https://doi.org/10.1145/3304109.3325812 
 
-###add references of the 3 VP clustering algorithms
+<a id="7">[7]</a> 
+S. Rossi, F. DeSimone, P. Frossard, and L. Toni. 2019.Spherical Clustering of Users Navigating 360° Content.In ICASSP 2019 - 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).4020–4024. https://doi.org/10.1109/ICASSP.2019.8683854 ISSN:2379-190X.
 
+<a id="8">[8]</a> 
+Stefano Petrangeli, Gwendal Simon, and Viswanathan Swaminathan. 2018. Trajectory-Based Viewport Prediction for 360-Degree Virtual Reality Videos. In2018 IEEE International Conference on Artificial Intelligence and Virtual Reality (AIVR).IEEE,Taichung,Taiwan,157–160. https://doi.org/10.1109/AIVR.2018. 00033 
+
+<a id="9">[9]</a> 
+Lan Xie, Xinggong Zhang, and Zongming Guo. 2018. CLS:A Cross-user Learning based System for Improving QoE in 360-degree Video Adaptive Streaming. In 2018 ACM Multimedia Conference on Multimedia Conference-MM’18.ACMPress, Seoul,Republic of Korea, 564–572. https://doi.org/10.1145/3240508.3240556 
