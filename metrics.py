@@ -56,7 +56,7 @@ from sklearn.cluster import SpectralClustering
 from scipy.sparse import csgraph
 from scipy import spatial
 from time import sleep
-from tqdm.notebook import tqdm as tqdm
+from tqdm import tqdm 
 #tqdm.notebook.tqdm` instead of `tqdm.tqdm_notebook
 from sklearn.metrics.pairwise import cosine_similarity,cosine_distances
 from scipy.spatial import distance
@@ -152,10 +152,10 @@ def evalTwoVidChunks3(video1, start1, video2, start2, videoFeatures):
 
 def withinVideoCluster(clusteredVideos, videoFeatures):
   vals=[]
-  for i in range(len(clusteredVideos)):
+  for i in tqdm(range(len(clusteredVideos))):
     print(i)
     q=[]
-    for u in tqdm(range(20000)):
+    for u in range(20000):
       a,b= random.sample(range(0, len(clusteredVideos[i])), 2)
       v1,s1= int(clusteredVideos[i][a][0]), int(clusteredVideos[i][a][1])
       v2,s2= int(clusteredVideos[i][b][0]), int(clusteredVideos[i][b][1])

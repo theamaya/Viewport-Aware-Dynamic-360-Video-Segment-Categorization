@@ -300,17 +300,18 @@ if args.savePlots:
     plotclusters(10,clusteredVPs,centers,path,length=2)
 
 if args.eval:
-    print('Evaluating and saving results...')
+    
     withinVPs=[]
     withinSpeeds=[]
     crossVPs=[]
     crossSpeeds=[]
-    for i in range(len(clusteredVPs)):
+    print('Evaluating within-cluster metrics...')
+    for i in tqdm(range(len(clusteredVPs))):
         a,b= metrics.withinVPCluster(0, clusteredVPs, data)
         withinVPs.append(a)
         withinSpeeds.append(b)
-
-    for i in range(len(clusteredVPs)):
+    print('Evaluating cross-cluster metrics...')
+    for i in tqdm(range(len(clusteredVPs))):
         a,b= metrics.crossVPCluster(i, clusteredVPs, data)
         crossVPs.append(a)
         crossSpeeds.append(b)
@@ -318,11 +319,12 @@ if args.eval:
     path= folder_path+'viewport_clustering_for_dataset_results/nclusters_'+str(nclusters)+'/'
     VPBetween=[]
     SpeedDiffBetween=[]
+    
     for i in range(nclusters):
         VPBetween.append(np.mean(crossVPs[i]))
         SpeedDiffBetween.append(np.mean(crossSpeeds))
 
-    
+    print('saving results...')
     font = {
             'size': 60,
             } 

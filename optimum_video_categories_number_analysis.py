@@ -272,7 +272,7 @@ normalizedVideoF= normalizeFeatures(videoFeatures)
 print('Calculating DBScore...')
 scores = []
 centers = list(range(2,30))
-for center in centers:
+for center in tqdm(range(2,30)):
     scores.append(get_kmeans_score(normalizedVideoF, center))
 
 print('Plotting...')
