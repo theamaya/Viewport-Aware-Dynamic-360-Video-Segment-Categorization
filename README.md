@@ -91,7 +91,7 @@ To implement the proposed viewport clustering for the aggregated dataset, run th
 
 Example command
 ```
-python3 viewport_clustering_for_dataset.py --nclusters 10 --saveClusters --savePlots --eval 
+python3 viewport_clustering_for_dataset.py --path /home/nossdavsub106/nossdav_artifacts/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/  --nclusters 10 --saveClusters --savePlots --eval 
 ```
 
 The clustering and evaluation results will be saved to a folder named after the ```--nclusters``` passed to the script. Eg:  ```./viewport_clustering_for_dataset_results/nclusters_10/```.  
