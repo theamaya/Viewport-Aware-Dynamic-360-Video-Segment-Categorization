@@ -58,7 +58,7 @@ import argparse
 import os.path
 from os import path
 from tqdm import tqdm
-
+import setPath as setPath
 
 def importAggregatedDataset():
     data=[]
@@ -252,7 +252,7 @@ args = parser.parse_args()
 if args.path:
     folder_path= args.path
 else:
-    folder_path= 'E:/Internship/academics/Amaya/NOSSDAV2021/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/'
+    folder_path= setPath.setFolderPath() 
 
 if args.viewportClusters:
     viewportClusters= int(args.viewportClusters)

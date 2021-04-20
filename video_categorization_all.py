@@ -62,7 +62,7 @@ import argparse
 import os.path
 from os import path
 from tqdm import tqdm
-
+import setPath as setPath
 
 def importAggregatedDataset():
     data=[]
@@ -245,15 +245,17 @@ def dotHeatmap(i, videoClustered, path):
   plt.savefig(path+'/videoCategory_'+str(i)+'_heatmap.png')
   plt.close()
 
-def featureHist(i, videoClustered, videoFeatures, path):
-    bars=[[],[],[],[],[],[],[],[],[],[]]
+def featureHist(i, videoClustered, videoFeatures, path, viewportClusters ):
+    bars=[]
+    for j in range(viewportClusters):
+      bars.append([])
     for k in videoClustered[i]:
         video= int(k[0])
         start= int(k[1]/2)
-        for j in range(10):
-            bars[j].append(videoFeatures[video*14+start][j+2])
+        for j in range(viewportClusters):
+            bars[j].append(videoFeatures[video*14+start][j+2])  ##
 
-    x_pos=np.arange(10)
+    x_pos=np.arange(viewportClusters)
     fig,ax1 =plt.subplots(1,1)
     fig.set_figheight(8)
     fig.set_figwidth(16)
@@ -261,16 +263,23 @@ def featureHist(i, videoClustered, videoFeatures, path):
     plt.ylabel('Formalized feature size',fontsize=40)
     plt.xlabel('Video Category', fontsize=40)
     ax1.yaxis.grid(True)  
-    ax1.bar(x_pos[0], np.mean(bars[0]), yerr=np.std(bars[0]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
-    ax1.bar(x_pos[1], np.mean(bars[1]), yerr=np.std(bars[1]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
-    ax1.bar(x_pos[2], np.mean(bars[2]), yerr=np.std(bars[2]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
-    ax1.bar(x_pos[3], np.mean(bars[3]), yerr=np.std(bars[3]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
-    ax1.bar(x_pos[4], np.mean(bars[4]), yerr=np.std(bars[4]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
-    ax1.bar(x_pos[5], np.mean(bars[5]), yerr=np.std(bars[5]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
-    ax1.bar(x_pos[6], np.mean(bars[6]), yerr=np.std(bars[6]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
-    ax1.bar(x_pos[7], np.mean(bars[7]), yerr=np.std(bars[7]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
-    ax1.bar(x_pos[8], np.mean(bars[8]), yerr=np.std(bars[8]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
-    ax1.bar(x_pos[9], np.mean(bars[9]), yerr=np.std(bars[9]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
+
+    for j in range(viewportClusters):
+      if j%2==0:
+        ax1.bar(x_pos[j], np.mean(bars[j]), yerr=np.std(bars[j]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
+      else:
+        ax1.bar(x_pos[j], np.mean(bars[j]), yerr=np.std(bars[j]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
+
+    # ax1.bar(x_pos[0], np.mean(bars[0]), yerr=np.std(bars[0]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
+    # ax1.bar(x_pos[1], np.mean(bars[1]), yerr=np.std(bars[1]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
+    # ax1.bar(x_pos[2], np.mean(bars[2]), yerr=np.std(bars[2]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
+    # ax1.bar(x_pos[3], np.mean(bars[3]), yerr=np.std(bars[3]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
+    # ax1.bar(x_pos[4], np.mean(bars[4]), yerr=np.std(bars[4]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
+    # ax1.bar(x_pos[5], np.mean(bars[5]), yerr=np.std(bars[5]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
+    # ax1.bar(x_pos[6], np.mean(bars[6]), yerr=np.std(bars[6]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
+    # ax1.bar(x_pos[7], np.mean(bars[7]), yerr=np.std(bars[7]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
+    # ax1.bar(x_pos[8], np.mean(bars[8]), yerr=np.std(bars[8]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[0], color = 'r')
+    # ax1.bar(x_pos[9], np.mean(bars[9]), yerr=np.std(bars[9]), align='center', alpha=0.5, ecolor='black', capsize=16,label = x_pos[1], color = 'g')
 
     fig.tight_layout()
     plt.savefig(path+'/VideoCategoryFeatures'+str(i)+'.png')
@@ -296,7 +305,7 @@ args = parser.parse_args()
 if args.path:
     folder_path= args.path
 else:
-    folder_path= 'E:/Internship/academics/Amaya/NOSSDAV2021/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/'
+    folder_path= setPath.setFolderPath() 
 
 if args.viewportClusters:
     viewportClusters= int(args.viewportClusters)
@@ -328,7 +337,7 @@ if args.savePlots:
     path= folder_path+'video_categorization_all_results/VPclusters_'+str(viewportClusters)+'_videocats_'+str(videoCats)
     for i in tqdm(range(videoCats)):
         dotHeatmap(i, clusteredVideos, path)
-        featureHist(i, clusteredVideos, videoFeatures, path)
+        featureHist(i, clusteredVideos, videoFeatures, path, viewportClusters )
 
 
 if args.saveClusters:
