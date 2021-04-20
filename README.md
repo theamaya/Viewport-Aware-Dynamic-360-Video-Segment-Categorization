@@ -1,7 +1,7 @@
-#Viewport-aware Dynamic 360 Video Segment Categorization
+#  Viewport-aware Dynamic 360 Video Segment Categorization
 This repository holds the code to reproduce the analysis and the proposed algorithms of the accepted paper [#106 Viewport-aware Dynamic 360 Video Segment Categorization for NOSSDAV 2021](https://nossdav2021.hotcrp.com/paper/106). 
 
-#Requirements
+#  Requirements
 The following packages are required
 
 *   numpy                              1.19.2
@@ -12,7 +12,7 @@ The following packages are required
 *   scipy                              1.6.0
 *   seaborn                            0.11.1
 
-#Datasets
+#  Datasets
 The analysis is done for an aggregaed dataset comprising of six different public datasets of head-movement logs in viewing 360 videos. [[1]](#1) , [[2]](#2), [[3]](#3), [[4]](#4), [[5]](#5), [[6]](#6).
 
 Please refer to https://github.com/360VidStr/A-large-dataset-of-360-video-user-behaviour/ for more details on the dataset
@@ -24,13 +24,13 @@ The total number of videos in the aggregated dataset is 88. The preprocessed dat
 3. Every file has 2n+1 lines where n= number of users who watched the video. First line contains the time points of sampling (in seconds).  
 4. 2i-1 th line has pitch angles for the ith user, 2i th line has the yaw angles for the ith user
 
-#Note
+#  Note
 Before running the scripts, open ```./setPath.py``` and replace the ```folder_path``` by the path to the folder of the cloned repository. 
 Eg: ```'/home/nossdavsub106/nossdav_artifacts/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/'```
 
 If you set this, you don't have to pass any path to the ```--path``` argument in the following scripts. 
 
-#Feature extraction
+#  Feature extraction
 To implement the proposed feature extraction in Section 4.1, run the script ```./feature_extraction.py``` with the following arguments
 
 
@@ -62,7 +62,7 @@ Eg: The path to the extracted features of viewport chunks from 10-12 seconds of 
 
 A file ```./extracted_features/allFeatures.txt``` will be saved with features of all viewport chunks. A line in this file corresponds to the features extracted from a 2s chunk of viewport logs. 18 space seperated values in each lines are same as above with the starting second of the viewport chunk inserted between 2. User number and 3. Yaw position - 25th percentile.
 
-#Viewport clustering for the aggregated dataset
+#  Viewport clustering for the aggregated dataset
 To implement the proposed analysis for the optimum nnumber of clusters for the aggregated datset, run the script ```./optimum_VP_cluster_number_analysis.py``` with the following arguments
 
 1.   ```--path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/``` (Pass the complete path to the directory of the cloned repository)
@@ -80,7 +80,7 @@ To implement the proposed viewport clustering for the aggregated dataset, run th
 The clustering and evaluation results will be saved to a folder named after the ```--nclusters``` passed to the script. Eg:  ```./viewport_clustering_for_dataset_results/nclusters_10/```.  
 The elements of the resulting clusters will be saved to text files named after the cluster number Eg:  ```./viewport_clustering_for_dataset_results/nclusters_10/cluster_0.txt```. Each line will include a viewport chunk characterized by ```videoNumber UserNumber startingTime(s)``` 
 
-#Comparing Viewport clustering algorithms 
+#  Comparing Viewport clustering algorithms 
 The precomputed results of viewport clustering (for the set of viewport chunks of the users watching the same video at the same time) using Spherical-clustering [[7]](#7), DBScore-based clustering [[9]](#9), and Trajectory-based clustering [[8]](#8) are saved in the folders
 ```./sphericalClusteringResults/```, ```./DBClusteringResults/```, ```./trajectoryClusteringResults/``` 
 respectively.
@@ -90,7 +90,7 @@ To implement the comparison of the proposed algorithm with the results of Spheri
 
 The results will be saved to ```./comparing_vp_clustering_algorithm_results/```
 
-#Dynamic Video Segement Categorization for the aggregated dataset
+#  Dynamic Video Segement Categorization for the aggregated dataset
 To implement the proposed analysis for the optimum nnumber of video categories for the aggregated datset, run the script ```./optimum_video_categories_number_analysis.py``` with the following arguments
 
 1.   ```--path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/``` (Pass the complete path to the directory of the cloned repository)
