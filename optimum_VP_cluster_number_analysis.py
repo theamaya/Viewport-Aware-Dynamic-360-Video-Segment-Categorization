@@ -162,9 +162,9 @@ data= importAggregatedDataset()
 allFeatures= readAllFeatures()
 df_normalized= normalizeFeatures(allFeatures)
 scores = []
-centers = list(range(2,30))
-for center in centers:
-    print(center, end=' ')
+#centers = list(range(2,30))
+for center in tqdm(range(2,30)):
+    #print(center, end=' ')
     scores.append(get_kmeans_score(np.asarray(df_normalized), center))
  
 
