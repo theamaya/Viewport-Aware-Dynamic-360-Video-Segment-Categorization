@@ -17,11 +17,11 @@ The total number of videos in the aggregated dataset is 88. The preprocessed dat
 4. 2i-1 th line has pitch angles for the ith user, 2i th line has the yaw angles for the ith user
 
 ##Feature extraction
-To implement the proposed feature extraction in Section 4.1, run the script ./feature_extraction.py with the following arguments
+To implement the proposed feature extraction in Section 4.1, run the script ```./feature_extraction.py``` with the following arguments
 
 
-1.   --path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/ (Pass the complete path to the directory of the cloned repository)
-2.   --video video_number (specify a number 0-87 to extract features for a single video. If not set, the script extracts features for all 88 videos in the dataset)
+1.   ```--path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/``` (Pass the complete path to the directory of the cloned repository)
+2.   ```--video video_number``` (specify a number 0-87 to extract features for a single video. If not set, the script extracts features for all 88 videos in the dataset)
 
 The extracted features will be saved in the directory ./extracted_features/
 
