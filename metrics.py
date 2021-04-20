@@ -153,7 +153,7 @@ def evalTwoVidChunks3(video1, start1, video2, start2, videoFeatures):
 def withinVideoCluster(clusteredVideos, videoFeatures):
   vals=[]
   for i in tqdm(range(len(clusteredVideos))):
-    print(i)
+    #print(i)
     q=[]
     for u in range(20000):
       a,b= random.sample(range(0, len(clusteredVideos[i])), 2)
