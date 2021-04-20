@@ -23,14 +23,54 @@ To implement the proposed feature extraction in Section 4.1, run the script ./fe
 1.   --path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/ (Pass the complete path to the directory of the cloned repository)
 2.   --video video_number (specify a number 0-87 to extract features for a single video. If not set, the script extracts features for all 88 videos in the dataset)
 
-The extracted features will be saved in the directory /extracted_features/
+The extracted features will be saved in the directory ./extracted_features/
+
+Eg: The path to the extracted features of viewport chunks from 10-12 seconds of the 5th video is at ./extracted_features/10-12s/5.txt . Where the nth line corresponds to the nth user. 
+18 space seperated values corresponds to the following features in order
 
 
-*   The 
+1.   List item
+2.   List item
 
 
+##Viewport clustering for the aggregated dataset
+To implement the proposed analysis for the optimum nnumber of clusters for the aggregated datset, run the script ./optimum_VP_cluster_number_analysis.py with the following arguments
 
+1.   --path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/ (Pass the complete path to the directory of the cloned repository)
 
+The resulting analysis (Figure 5.a) will be saved to ./optimum_VP_cluster_number_analysis_results . According to the explanation given in the paper, the optimum number of clusters is selected as 10.
+
+To implement the proposed viewport clustering for the aggregated dataset, run the script ./viewport_clustering_for_dataset.py with the following arguments
+
+1.   --path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/ (Pass the complete path to the directory of the cloned repository)
+2.   --nclusters (number of viewport clusters. default is 10)
+3.   --saveClusters (set this to save the elemets of resulting clusters to text files)  
+4.   --savePlots (set this to save the plots in figure 7)  
+4.   --eval (set this to run the evaluation explained in Section 4.2 and save the figure 6) 
+
+##Comparing Viewport clustering algorithms 
+
+To implement the comparison of the proposed algorithm with the results of Spherical-clustering ........ and reproduce the results of Figure 3, run the script ./comparing_vp_clustering_algorithm.py with the following arguments
+1.   --path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/ (Pass the complete path to the directory of the cloned repository).
+
+The results will be saved to ./comparing_vp_clustering_algorithm_results/
+
+##Dynamic Video Segement Categorization for the aggregated dataset
+To implement the proposed analysis for the optimum nnumber of video categories for the aggregated datset, run the script ./optimum_video_categories_number_analysis.py with the following arguments
+
+1.   --path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/ (Pass the complete path to the directory of the cloned repository)
+2.   ---viewportClusters (number of viewport clusters. default is 10)
+
+The resulting analysis (Figure 10.a) will be saved to ./optimum_video_categories_number_analysis_results . According to the explanation given in the paper, the optimum number of video categories corresponding to 10 viewport clusters is selected as 6.
+
+To implement the proposed video categorization for the aggregated dataset, run the script ./video_categorization_all.py with the following arguments
+
+1.   --path ~/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/ (Pass the complete path to the directory of the cloned repository)
+2.   --viewportClusters (number of viewport clusters. default is 10)
+3.   --videoCats (number of video categories. default is 6)
+4.   --saveClusters (set this to save the elemets of resulting clusters to text files)  
+5.   --savePlots (set this to save the plots in figure 9)  
+6.   --eval (set this to run the evaluation explained in Section 4.2 and save the figure 10.b) 
 
 ## References
 <a id="1">[1]</a> 
@@ -51,3 +91,6 @@ Yu Guan, Chengyuan Zheng, Xinggong Zhang, Zongming Guo, and Junchen Jiang.2019. 
 <a id="6">[6]</a> 
 Afshin Taghavi Nasrabadi, Aliehsan Samiei, Anahita Mahzari, Ryan P. McMahan, Ravi Prakash, Mylène C. Q. Farias, and Marcelo M. Carvalho. 2019. A taxonomy
 and dataset for 360° videos. In Proceedings of the 10th ACM Multimedia Systems Conference. ACM, Amherst Massachusetts, 273–278. https://doi.org/10.1145/3304109.3325812 
+
+###add references of the 3 VP clustering algorithms
+
