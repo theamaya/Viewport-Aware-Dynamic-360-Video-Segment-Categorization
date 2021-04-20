@@ -152,7 +152,7 @@ To reproduce the comparison analysis given in Figure 11.b, run the script ```./g
 
 Example command
 ```
-python3 video_categorization_all.py --path /home/nossdavsub106/nossdav_artifacts/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/ --viewportClusters 10 --videoCats 6 
+python3 genre_vs_dynamic_video_categorization.py --path /home/nossdavsub106/nossdav_artifacts/Viewport-Aware-Dynamic-360-Video-Segment-Categorization/ --viewportClusters 10 --videoCats 6 
 ```
 
 The 88 videos of the dataset are categorized to 10 genres
