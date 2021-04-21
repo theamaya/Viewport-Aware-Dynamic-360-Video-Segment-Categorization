@@ -266,7 +266,34 @@ if args.path:
 else:
     folder_path= setPath.setFolderPath() 
 
-if args.video == 'all':
+if args.video:
+    video= int(args.video)
+    print('video number ',video)
+        
+    data= importAggregatedDataset()
+
+    starts=[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58] 
+    length=2
+    print('Extracting features from viewport chunks...')
+    for w in tqdm(range(len(starts))):
+        start=starts[w]
+        for i in range(int(video),int(video)+1):
+            path= folder_path+ 'extracted_features/'+str(start)+'-'+str(length+start)+'s/'
+            f= open(path+str(i)+'.txt',"w")
+            
+            for j in range(len(data[i][1])):
+                if len(data[i][1][j])>(start+length)*10:
+                    features= [i,j]
+                    features.extend(yawPitchStat(i,j,start,length))
+                    features.append(percentageSphereVideo(i,j,start,length))
+                    features.extend(maxAngles(i,j,start,length))
+                    features.extend(speeds(i,j,start,length))
+                    str1 = ' '.join(str(e) for e in features)
+                    f.write(str1+"\n" )
+            f.close()
+
+else:
+
     a= args.video
     print('All videos in the dataset')
 
@@ -297,31 +324,8 @@ if args.video == 'all':
     saveAllFeatures(features)
     print('Done')
 
-else:
-    video= args.video
-    print('video number ',video)
-        
-    data= importAggregatedDataset()
 
-    starts=[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58] 
-    length=2
-    print('Extracting features from viewport chunks...')
-    for w in tqdm(range(len(starts))):
-        start=starts[w]
-        for i in range(int(video),int(video)+1):
-            path= folder_path+ 'extracted_features/'+str(start)+'-'+str(length+start)+'s/'
-            f= open(path+str(i)+'.txt',"w")
-            
-            for j in range(len(data[i][1])):
-                if len(data[i][1][j])>(start+length)*10:
-                    features= [i,j]
-                    features.extend(yawPitchStat(i,j,start,length))
-                    features.append(percentageSphereVideo(i,j,start,length))
-                    features.extend(maxAngles(i,j,start,length))
-                    features.extend(speeds(i,j,start,length))
-                    str1 = ' '.join(str(e) for e in features)
-                    f.write(str1+"\n" )
-            f.close()
+
 
 
 
