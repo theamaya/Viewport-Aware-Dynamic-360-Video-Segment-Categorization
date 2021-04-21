@@ -13,6 +13,8 @@ The following packages are required
 *   scipy                              1.6.0
 *   seaborn                            0.11.1
 *   tqdm                               4.56.0
+*   Shapely                            1.7.1
+*   statsmodels                        0.12.1   
 
 
 # Datasets
