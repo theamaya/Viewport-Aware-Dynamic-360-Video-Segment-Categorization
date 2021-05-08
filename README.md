@@ -1,5 +1,5 @@
 # Viewport-aware Dynamic 360 Video Segment Categorization
-This repository holds the code to reproduce the analysis and the proposed algorithms of the accepted paper [#106 Viewport-aware Dynamic 360 Video Segment Categorization](https://nossdav2021.hotcrp.com/paper/106)  for NOSSDAV 2021. 
+This repository holds the code to reproduce the analysis and the proposed algorithms of the accepted paper [Viewport-aware Dynamic 360 Video Segment Categorization](https://arxiv.org/pdf/2105.01701.pdf)  for NOSSDAV 2021. 
 
 # Requirements
 The following packages are required
