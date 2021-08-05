@@ -3,19 +3,19 @@ This repository holds the code to reproduce the analysis and the proposed algori
 
 # Requirements
 The following packages are required
-
-*   python                             3.8.5
-*   numpy                              1.19.2
-*   matplotlib                         3.3.2
-*   pandas                             1.2.1
-*   scikit-learn                       0.23.2
-*   scikit-image                       0.17.2
-*   scipy                              1.6.0
-*   seaborn                            0.11.1
-*   tqdm                               4.56.0
-*   Shapely                            1.7.1
-*   statsmodels                        0.12.1   
-
+```
+python==3.8.5
+numpy==1.19.2
+matplotlib==3.3.2
+pandas==1.2.1
+scikit-learn==0.23.2
+scikit-image==0.17.2
+scipy==1.6.0
+seaborn==0.11.1
+tqdm==4.56.0
+Shapely==1.7.1
+statsmodels==0.12.1   
+```
 
 # Datasets
 The analysis is done for an aggregaed dataset comprising of six different public datasets of head-movement logs in viewing 360 videos. [[1]](#1) , [[2]](#2), [[3]](#3), [[4]](#4), [[5]](#5), [[6]](#6).
