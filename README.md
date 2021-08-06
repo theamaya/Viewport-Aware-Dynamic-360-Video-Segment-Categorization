@@ -18,7 +18,7 @@ statsmodels==0.12.1
 ```
 
 # Datasets
-The analysis is done for an aggregaed dataset comprising of six different public datasets of head-movement logs in viewing 360 videos. [[1]](#1) , [[2]](#2), [[3]](#3), [[4]](#4), [[5]](#5), [[6]](#6).
+The analysis is done for an aggregaed dataset comprising of six different public datasets of head-movement logs in viewing 360 videos. [[1]](#1) , [[2]](#2) [dataset](https://nmsl.cs.nthu.edu.tw/360-video-project/), [[3]](#3), [[4]](#4) [dataset](https://wuchlei-thu.github.io/), [[5]](#5) [dataset](https://github.com/pkuguanyu/PanoProject), [[6]](#6) [dataset](https://github.com/acmmmsys/2019-360dataset).
 
 Please refer to our repository https://github.com/360VidStr/A-large-dataset-of-360-video-user-behaviour/ for more details on the dataset
 
